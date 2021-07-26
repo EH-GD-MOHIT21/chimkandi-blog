@@ -167,6 +167,52 @@
         </div>
     </nav>
 
+    
+<!--  updated -->
+    
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Welcome to cbv2 Login/Singup</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="loginform" id="loginform">
+                        <form action="/auth/login" method="POST">
+                            {% csrf_token %}
+                            <span class="material-icons-outlined position-absolute oneico">email</span>
+                            <input name="username" class="w-100 py-2 my-2 custompad" type="email" placeholder="Enter Your Email">
+                            <span class="material-icons-outlined position-absolute secondico">lock</span>
+                            <input name="password" class="w-100 py-2 my-2 custompad" type="password" placeholder="Enter Your password">
+                            <p id="loginlog"></p>
+                            <button class="btn btn-primary d-block mx-auto my-2">Login</button>
+                            <a href="#" id="cacc">Create Account?</a>
+                        </form>
+                    </div>
+                    <div class="signupform" id="signupform">
+                        <form action="/auth/signup" method="POST">
+                            {% csrf_token %}
+                            <span class="material-icons-outlined position-absolute oneico2">email</span>
+                            <input name="username" class="w-100 py-2 my-2 custompad" type="email" id="email" placeholder="Enter Your Email">
+                            <span class="material-icons-outlined position-absolute secondico2">lock</span>
+                            <input name="password" class="w-100 py-2 my-2 custompad" type="password" placeholder="Enter Your password">
+                            <span class="material-icons-outlined position-absolute secondico22">lock</span>
+                            <input name="cpassword" class="w-100 py-2 my-2 custompad" type="password" placeholder="Enter Confirm password">
+                            <button class="btn btn-primary d-block mx-auto my-2" id="otpgen" type="button">Generate Otp</button>
+                            <span class="material-icons-outlined pinico">pin</span>
+                            <input name="otp" class="w-100 py-2 my-2 custompad" type="number" placeholder="Enter otp">
+                            <button class="btn btn-primary d-block mx-auto my-2">Signup</button>
+                            <a href="#" id="logacc">Already have account login?</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<!--   ends here   -->
 
 
 

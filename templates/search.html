@@ -105,7 +105,7 @@
         <h5 class="my-4">{{i.title}}</h5>
         <h6 class="my-2">{{i.Blog_categories}}</h6>
         <img src="{{i.feature_img.url}}" alt="" style="width:200px;height:200px">
-        <a class="d-block w-50 mx-auto btn btn-danger my-4" href="http://127.0.0.1:8000/blogs/{{i.blog_url}}">Read Now</a>
+        <a class="d-block w-50 mx-auto btn btn-danger my-4" href="https://cbv2.herokuapp.com/blogs/{{i.blog_url}}">Read Now</a>
     </div>
     {% endfor %}
 </div>
@@ -133,7 +133,7 @@
         </li>
         {% endif %} {% endfor %} {% if posts.has_next %}
         <li class="page-item">
-            <a class="page-link" href="search?{{rest_url}}&page={{ posts.next_page_number }}">Next</a>
+            <a class="page-link" href="/search?{{rest_url}}&page={{ posts.next_page_number }}">Next</a>
         </li>
         {% else %}
         <li class="disabled page-item"><a class="page-link disabled" href="#">Next</a></li>

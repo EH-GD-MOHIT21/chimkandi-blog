@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-lbg#vi)!)*pxx10tlg!m3v$-fwnipih!5ju$64dxbagr1$jwk+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1','cbv2.herokuapp.com']
 
@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'sitemanager.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'd2cqufmrp5um6g',
         'USER': 'jdboqkqceojlxx',
         'PASSWORD':'19b954118c2bb8716e82fde70a529c9f8fbad394caeb68099dcc9f4321f83ab9',

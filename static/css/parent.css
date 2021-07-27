@@ -1,0 +1,30 @@
+.signupform {
+    display: none;
+}
+
+.underline {
+    height: 4px;
+    width: 20%;
+    background: crimson;
+    margin: auto;
+    margin-bottom: 14px;
+}
+
+.leader {
+    text-align: justify;
+    letter-spacing: 1.2px;
+    word-spacing: 1.1px;
+}
+
+.manualmargin {
+    margin: 36px auto;
+}
+
+.cdc {
+    border-radius: 3px;
+}
+
+.parentcard {
+    width: 300px;
+    border: 1px solid black;
+}

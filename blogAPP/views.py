@@ -146,7 +146,14 @@ def acceptblogdata(request):
                     except:
                         break
             try:
-                maximum = max(max(img_indexes),max(desc_indexes))
+                if len(img_indexes) and len(desc_indexes):
+                    maximum = max(max(img_indexes),max(desc_indexes))
+                elif len(img_indexes):
+                    maximum = len(img_indexes)
+                elif len(desc_indexes):
+                    maximum = len(desc_indexes)
+                else:
+                    maximum = 0
             except:
                 maximum = 0
             blog_pos_spec = ""
@@ -227,7 +234,6 @@ def RenderUniqueBlogPage(request,blogurl):
 
         
         final_render_obj = zip(render_string_obj,render_obj)
-
         recent_blogs_3 = Blogs.objects.filter(author=author).order_by('added_at')[:3]
 
 

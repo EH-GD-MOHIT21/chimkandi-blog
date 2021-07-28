@@ -11,7 +11,7 @@ from django.conf import settings
 
 
 def RenderHome(request):
-    all_blogs = Blogs.objects.all()
+    all_blogs = Blogs.objects.all().order_by('-added_at')
     recent_blogs = all_blogs[:3]
     superuserblogs = []
     show_titlefeature = True

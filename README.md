@@ -15,3 +15,13 @@
 6. Django Pagination added in search field Results.
 
 7. Dynamic Blog Post (Custom containers upto 10.) + custom html/style tags supported.
+
+New
+
+8. Rating option provided for blogs
+
+9. Changed cum/User model
+
+10. Added Comment Section Option for blogs
+
+11. Added Password Reset Option

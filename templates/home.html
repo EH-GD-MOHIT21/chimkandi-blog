@@ -21,32 +21,15 @@
             border-radius: 5px;
         }
 
-        @media(max-width: 1200px){
-            .blgcntr {
-                justify-content: center !important;
-            }
-        }
-        
-        @media (max-width:960px) {
-            .blgcntr {
-                /* display: block !important; */
-                padding-left: 0 !important;
-                padding-right: 0 !important;
-            }
-            .parentcard {
-                padding-left: 0 !important;
-                padding-right: 0 !important;
-            }
-            img {
+        @media(max-width:768px){
+            .parentcard{
                 width: 95% !important;
             }
-        }
-        
-        @media(max-width:827px) {
-            .parentcard {
-                display: block !important;
-                margin: 20px auto !important;
-                width: 95% !important;
+            .parentcard img{
+                width: 98% !important;
+            }
+            .container{
+                padding: 10px 5px !important;
             }
         }
         
@@ -170,14 +153,13 @@
     <div class="container w-75 my-3 py-4 bg-light mb-4">
         <h3 class="text-center display-6 fw-normal mb-3">Welcome to Chimkandi Blogs</h3>
         <div class="underline"></div>
-        <p class="leader p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat ad aliquam recusandae nesciunt eos, quaerat culpa harum sequi commodi at dolorem. Voluptates distinctio ipsam quo architecto illum mollitia, aut perspiciatis, error quam
-            non nisi animi nulla eligendi porro ipsa, quasi voluptas atque eos officia recusandae aliquid placeat! Natus, reiciendis.</p>
+        <p class="leader p-3">Chimkandi Blog cbv2.com is a website for creating/reading user blogs. cbv2.com has its currency known as Nested Coin (NC). For each day spend on dashboard you'll get 0.01 NC, on first time signup you'll get 1 NC. For invite a friend you'll get 1 NC and they'll receive 0.5 NC. User need 1.5 NC for uploading a blog while reading a blog/comment on blogs/rate a blog is totally free you just need to register.</p>
     </div>
 
     <h3 class="text-center manualmargin">Recent Posts: </h3>
 
     <div class="container cdc px-5 text-center bg-light blgcntr">
-    <div class="container w-75 px-5 cdc text-center d-flex justify-content-between flex-wrap bg-light blgcntr">
+    <div class="cdc text-center d-flex justify-content-around flex-wrap bg-light blgcntr">
         {% for data in rblogs %}
         <div class="parentcard my-4 hovershadow">
             <h5 class="my-4">{{data.title}}</h5>
@@ -194,7 +176,7 @@
     <h3 class="text-center manualmargin">Featured Posts: </h3>
     {% endif %}
     <div class="container cdc px-5 text-center bg-light blgcntr">
-    <div class="container cdc w-75 px-5 text-center bg-light d-flex justify-content-between flex-wrap blgcntr">
+    <div class="cdc text-center d-flex justify-content-around flex-wrap bg-light blgcntr">
         {% for data in superuserblogs %}
         <div class="parentcard my-4 hovershadow">
             <h5 class="my-4">{{data.title}}</h5>

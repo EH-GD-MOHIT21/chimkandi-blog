@@ -76,27 +76,27 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'sitemanager.wsgi.application'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': 'db.sqlite3',
+#     }
+# }
 
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'd2cqufmrp5um6g',
-#         'USER': 'jdboqkqceojlxx',
-#         'PASSWORD':'19b954118c2bb8716e82fde70a529c9f8fbad394caeb68099dcc9f4321f83ab9',
-#         'PORT': 5432,
-#         'HOST':'ec2-52-2-118-38.compute-1.amazonaws.com',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd2cqufmrp5um6g',
+        'USER': 'jdboqkqceojlxx',
+        'PASSWORD':'19b954118c2bb8716e82fde70a529c9f8fbad394caeb68099dcc9f4321f83ab9',
+        'PORT': 5432,
+        'HOST':'ec2-52-2-118-38.compute-1.amazonaws.com',
+    }
+}
 
 
 # Password validation
@@ -157,3 +157,5 @@ PASS_SENDER = "qwerty@123"
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
+print('you are running this site on DEBUG mode:',DEBUG)

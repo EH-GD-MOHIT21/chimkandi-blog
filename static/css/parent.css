@@ -1,0 +1,83 @@
+.signupform {
+    display: none;
+}
+
+.fpform {
+    display: none;
+}
+
+.underline {
+    height: 4px;
+    width: 20%;
+    background: crimson;
+    margin: auto;
+    margin-bottom: 14px;
+}
+
+.leader {
+    text-align: justify;
+    letter-spacing: 1.2px;
+    word-spacing: 1.1px;
+}
+
+.manualmargin {
+    margin: 36px auto;
+}
+
+.cdc {
+    border-radius: 3px;
+}
+
+.parentcard {
+    width: 300px;
+    border: 1px solid black;
+}
+
+.fpmail {
+    top: 20%;
+    left: 25px;
+}
+
+.fppin {
+    top: 37%;
+    left: 25px;
+}
+
+.fplock {
+    top: 51.7%;
+    left: 25px;
+}
+
+.fplock2 {
+    top: 66.5%;
+    left: 25px;
+}
+
+#aria-fp-invisible {
+    display: none;
+}
+
+.container .profile-ico-left img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.profile-ico-left {
+    margin-right: 10px;
+}
+
+.wordbreak {
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.custominput {
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid gray;
+}
+
+.custominput:hover {
+    border-bottom: 2px solid black;
+}

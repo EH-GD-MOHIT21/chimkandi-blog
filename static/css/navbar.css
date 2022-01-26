@@ -1,0 +1,75 @@
+#inputGroupSelect02,
+#nestedinput {
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    border: 1px solid #DDDDDD;
+}
+
+#inputGroupSelect02:focus,
+#nestedinput:focus {
+    box-shadow: 0 0 5px rgb(238, 53, 29);
+    border: 1px solid rgb(238, 53, 29);
+}
+
+select {
+    cursor: pointer;
+}
+
+.oneico {
+    top: 14.3%;
+    left: 25px;
+}
+
+.secondico {
+    top: 38.2%;
+    left: 25px;
+}
+
+.custompad {
+    padding: 10px 35px;
+}
+
+.oneico2,
+.secondico2,
+.secondico22,
+.pinico {
+    position: absolute;
+    left: 25px;
+}
+
+.oneico2 {
+    top: 8.7%;
+}
+
+.secondico2 {
+    top: 23.1%;
+}
+
+.secondico22 {
+    top: 38%;
+}
+
+.pinico {
+    top: 66.5%;
+}
+
+.hovershadow:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+@media(max-width:992px) {
+    .forminp {
+        display: block !important;
+    }
+    #nestedinput {
+        margin: 20px auto !important;
+    }
+    .sbtn {
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+    }
+}

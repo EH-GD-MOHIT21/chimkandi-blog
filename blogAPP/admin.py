@@ -13,3 +13,4 @@ admin.site.register(Blogs)
 admin.site.register(BlogRatings)
 
 admin.site.register(DescFields)
+admin.site.register(BlogComments)

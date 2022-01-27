@@ -214,6 +214,7 @@ def RenderUniqueBlogPage(request,blogurl):
         category = blog.Blog_categories
         timestamp = blog.added_at
         blog_rating = blog.blog_rating
+        total_rating = blog.total_rate
         images = BlogImages.objects.filter(index=blog)
         desc = DescFields.objects.filter(index=blog)
         render_str = blog.content_position
@@ -248,7 +249,7 @@ def RenderUniqueBlogPage(request,blogurl):
             except:
                 pass
         comments = BlogComments.objects.filter(index=blog)
-        return render(request,'blog.html',{'title':title,'author':author,'timestamp':timestamp,'data':final_render_obj,'recent':recent_blogs_3,'category':category,"user_rating_exists":user_rating_exists,"user_rating":user_rating,"blog_rating":blog_rating,"comments":comments})
+        return render(request,'blog.html',{'title':title,'author':author,'timestamp':timestamp,'data':final_render_obj,'recent':recent_blogs_3,'category':category,"user_rating_exists":user_rating_exists,"user_rating":user_rating,"blog_rating":blog_rating,"comments":comments,"total_rating":total_rating,"blog_url":blogurl})
     except Exception as e:
         # print(e)
         return redirect('/')
@@ -310,6 +311,14 @@ def CollectAppropriateData(filter,data):
         if len(blogs):
             return blogs
         return None
+    elif filter == "rating":
+        try:
+            dataset = Blogs.objects.filter(blog_rating__gte=float(data)).order_by("-blog_rating")
+            if len(dataset):
+                return dataset
+            return None
+        except:
+            return None
     elif filter == 'title':
         dataset = Blogs.objects.filter(title__icontains=data)
         if len(dataset):
@@ -380,6 +389,7 @@ def make_rating(request):
         model.save()
         rate_model = BlogRatings.objects.filter(index=blogmodel)
         blogmodel.blog_rating = (blogmodel.blog_rating * (len(rate_model)-1) + rating) / (len(rate_model) )
+        blogmodel.total_rate += 1
         blogmodel.save()
 
         return Response({'status':200,'message':'success'})
@@ -406,3 +416,18 @@ def post_comment(request):
         return Response({'status':200,'message':'success'})
     except:
         return Response({'status':400,'message':'Invalid Request.'})
+
+
+
+def removecomment(request):
+    if not request.user.is_authenticated or request.method != "POST":
+        return redirect('/')
+    try:
+        timestamp = request.POST["timestamp-comment"]
+        current_user_path = str(request.POST["current-user-path"])
+        blog = Blogs.objects.get(blog_url=current_user_path)
+        usercomment = BlogComments.objects.get(id=timestamp,user=request.user,index=blog)
+        usercomment.delete()
+        return redirect('/blogs/'+current_user_path)
+    except:
+        return redirect('/')

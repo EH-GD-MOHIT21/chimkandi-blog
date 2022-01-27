@@ -12,4 +12,5 @@ urlpatterns = [
     path('changepp',views.changepp),
     path('makerate',views.make_rating),
     path('postcomment',views.post_comment),
+    path('removecomment',views.removecomment),
 ]

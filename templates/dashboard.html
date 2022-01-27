@@ -87,42 +87,8 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">CBV2</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-            <div class="collapse navbar-collapse" id="navbarColor02">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/dashboard">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        {% if user.is_authenticated %}
-                        <a href="/auth/logout" style="cursor: pointer;" class="nav-link">logout</a> {% else %}
-                        <a style="cursor: pointer;" class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</a> {% endif %}
-                    </li>
-                </ul>
-                <form class="d-flex forminp" method="GET" action="/search">
-                    <div class="input-group">
-                        <label class="input-group-text" for="inputGroupSelect02"><i class="bi bi-filter"></i></label>
-                        <select name="filter" id="inputGroupSelect02" class="bg-light">
-                            <option value="category">category</option>
-                            <option value="author">author</option>
-                            <option value="title">title</option>
-                            <option value="timestamp">timestamp</option>
-                        </select>
-                    </div>
-                    <input required name="data" id="nestedinput" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-light sbtn" type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-    </nav>
+    {% include 'navbar.html' %}
+    {% include 'model.html' %}
 
     <div class="container">
         <div class="imgcontainer">
@@ -167,8 +133,9 @@
         <div class="blogscontainer bg-light d-flex justify-content-around flex-wrap text-center">
             {% for blog in blogs %}
             <div class="parentcard m-3 text-center hovershadow">
-                <h5 class="my-4">{{blog.title}}</h5>
+                <h5 class="mt-3">{{blog.title}}</h5>
                 <h6 class="my-2">{{blog.Blog_categories}}</h6>
+                <p class="mb-2">Rating: {{blog.blog_rating}}/5.0 ({{blog.total_rate}})</p>
                 <img class="ppic" src="{{blog.feature_img.url}}" alt="" style="width:200px;height:200px">
                 <a class="d-block w-50 mx-auto btn btn-danger my-4" href="/blogs/{{blog.blog_url}}">Read Now</a>
             </div>

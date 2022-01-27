@@ -42,114 +42,8 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">CBV2</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-            <div class="collapse navbar-collapse" id="navbarColor02">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/dashboard">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        {% if user.is_authenticated %}
-                        <a href="/auth/logout" style="cursor: pointer;" class="nav-link">logout</a> {% else %}
-                        <a style="cursor: pointer;" class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</a> {% endif %}
-                    </li>
-                </ul>
-                <form class="d-flex forminp" method="GET" action="/search">
-                    <div class="input-group">
-                        <label class="input-group-text" for="inputGroupSelect02"><i class="bi bi-filter"></i></label>
-                        <select name="filter" id="inputGroupSelect02" class="bg-light">
-                            <option value="category">category</option>
-                            <option value="author">author</option>
-                            <option value="title">title</option>
-                            <option value="timestamp">timestamp</option>
-                        </select>
-                    </div>
-                    <input required name="data" id="nestedinput" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-light sbtn" type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-    </nav>
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Welcome to cbv2 Login/Singup</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="loginform" id="loginform">
-                        <form action="/auth/login" method="POST">
-                            {% csrf_token %}
-                            <span class="material-icons-outlined position-absolute oneico">email</span>
-                            <input name="username" class="w-100 py-2 my-2 custompad" type="email" placeholder="Enter Your Email">
-                            <span class="material-icons-outlined position-absolute secondico">lock</span>
-                            <input name="password" class="w-100 py-2 my-2 custompad" type="password" placeholder="Enter Your password">
-                            <p id="loginlog"></p>
-                            <button class="btn btn-primary d-block mx-auto my-2">Login</button>
-                            <div class="d-flex justify-content-between">
-                                <a href="#" class="d-block mx-2 my-1" id="cacc">Create Account?</a>
-                                <a href="#" class="d-block mx-2 my-1" id="facc">Forget Password?</a>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="signupform" id="signupform">
-                        <form action="/auth/signup" method="POST">
-                            {% csrf_token %}
-                            <span class="material-icons-outlined position-absolute oneico2">email</span>
-                            <input name="username" class="w-100 py-2 my-2 custompad" type="email" id="email" placeholder="Enter Your Email">
-                            <span class="material-icons-outlined position-absolute secondico2">lock</span>
-                            <input name="password" class="w-100 py-2 my-2 custompad" type="password" placeholder="Enter Your password">
-                            <span class="material-icons-outlined position-absolute secondico22">lock</span>
-                            <input name="cpassword" class="w-100 py-2 my-2 custompad" type="password" placeholder="Enter Confirm password">
-                            <button class="btn btn-primary d-block mx-auto my-2" id="otpgen" type="button">Generate Otp</button>
-                            <span class="material-icons-outlined pinico">pin</span>
-                            <input name="otp" class="w-100 py-2 my-2 custompad" type="number" placeholder="Enter otp">
-                            <button class="btn btn-primary d-block mx-auto my-2">Signup</button>
-                            <a href="#" id="logacc">Already have account login?</a>
-                        </form>
-                    </div>
-
-
-                    <div class="fpform" id="fpform">
-                        <form action="/auth/fpsave" method="POST">
-                            {% csrf_token %}
-                            <span id="emailfpico" class="material-icons-outlined position-absolute fpmail">email</span>
-                            <input name="username" class="w-100 py-2 my-2 custompad" type="email" id="fpemail" placeholder="Enter Your Email">
-                            <button class="btn btn-primary d-block mx-auto my-2" id="fpotpgen" type="button">Generate token</button>
-                            <div id="aria-fp-invisible">
-                                <span class="material-icons-outlined position-absolute fppin">pin</span>
-                                <input name="otp" class="w-100 py-2 my-2 custompad" type="number" placeholder="Enter otp" id="fpotp">
-                                <span class="material-icons-outlined position-absolute fplock">lock</span>
-                                <input name="password" class="w-100 py-2 my-2 custompad" type="password" placeholder="Enter Your password" id="fpp1">
-                                <span class="material-icons-outlined position-absolute fplock2">lock</span>
-                                <input name="cpassword" class="w-100 py-2 my-2 custompad" type="password" placeholder="Enter Confirm password" id="fpp2">
-                                <button type="button" class="btn btn-primary d-block mx-auto my-2" id="res-btn">Reset Password</button>
-                            </div>
-                            <a href="#" id="fp2log">Remember password?</a>
-                        </form>
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
+    {% include 'navbar.html' %}
+    {% include 'model.html' %}
     <div class="container w-75 my-3 py-4 bg-light mb-4">
         <h3 class="text-center display-6 fw-normal mb-3">Welcome to Chimkandi Blogs</h3>
         <div class="underline"></div>
@@ -162,8 +56,9 @@
     <div class="cdc text-center d-flex justify-content-around flex-wrap bg-light blgcntr">
         {% for data in rblogs %}
         <div class="parentcard my-4 hovershadow">
-            <h5 class="my-4">{{data.title}}</h5>
+            <h5 class="mt-3">{{data.title}}</h5>
             <h6 class="my-2">{{data.Blog_categories}}</h6>
+            <p class="mb-2">Rating: {{data.blog_rating}}/5.0 ({{data.total_rate}})</p>
             <img src="{{data.feature_img.url}}" alt="" style="width:200px;height:200px">
             <a class="d-block w-50 mx-auto btn btn-danger my-4" href="/blogs/{{data.blog_url}}">Read Now</a>
         </div>
@@ -179,8 +74,9 @@
     <div class="cdc text-center d-flex justify-content-around flex-wrap bg-light blgcntr">
         {% for data in superuserblogs %}
         <div class="parentcard my-4 hovershadow">
-            <h5 class="my-4">{{data.title}}</h5>
+            <h5 class="mt-3">{{data.title}}</h5>
             <h6 class="my-2">{{data.Blog_categories}}</h6>
+            <p class="mb-2">Rating: {{data.blog_rating}}/5.0 ({{data.total_rate}})</p>
             <img src="{{data.feature_img.url}}" alt="" style="width:200px;height:200px">
             <a class="d-block w-50 mx-auto btn btn-danger my-4" href="/blogs/{{data.blog_url}}">Read Now</a>
         </div>

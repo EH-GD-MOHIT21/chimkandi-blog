@@ -33,6 +33,7 @@ class Blogs(models.Model):
     feature_img = models.ImageField(upload_to='imgs',null=True,blank=True)
     Blog_categories = models.CharField(max_length=15,choices=Blog_categories_available,default="General")
     blog_rating = models.FloatField(default=0)
+    total_rate = models.IntegerField(default=0)
     
 
     @property

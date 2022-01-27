@@ -22,6 +22,6 @@ New
 
 9. Changed cum/User model
 
-10. Added Comment Section Option for blogs
+10. Added/Remove Comment Section Option for blogs
 
 11. Added Password Reset Option

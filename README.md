@@ -1,3 +1,3 @@
 # chimkandi-blog
 
-# { PS -> Please Checkout Version2 Branch }
+# { PS -> Please Checkout master Branch }

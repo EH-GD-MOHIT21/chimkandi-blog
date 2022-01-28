@@ -172,7 +172,7 @@
             {% include 'ratingstar.html' %}
 
             <div class="credits">
-                <h5>Author: {{author}}</h5>
+                <h5>Author: {{author.email}}</h5>
                 <h5>Category: {{category}}</h5>
                 <h5>Added at: {{timestamp}}</h5>
                 {% if blog_rating >= 4 %}
@@ -181,6 +181,10 @@
                 <h5>Rating: <span style="color:blue;">{{blog_rating}}/5.0 ({{total_rating}})</span></h5>
                 {% else %}
                 <h5>Rating: <span style="color:crimson;">{{blog_rating}}/5.0 ({{total_rating}})</span></h5>
+                {% endif %}
+
+                {% if author.email == user.email %}
+                <a href="#" style="color:purple;" onclick="handledelete('{{blog_url}}',this)">Delete this Blog</a>
                 {% endif %}
             </div>
 
@@ -289,6 +293,20 @@
                     alert(res['data']['message']);
             });
     })
+
+    async function handledelete(path,elm){
+        elm.style.display = 'none';
+        alert('processing your request...')
+        axios.post('/delblog', {
+            "blog_url": path
+        })
+        .then(res => {
+            if (res['data']['message'] == 'success') {
+                window.location.href = "/";
+            } else
+                alert(res['data']['message']);
+        });
+    }
 </script>
 
 </html>

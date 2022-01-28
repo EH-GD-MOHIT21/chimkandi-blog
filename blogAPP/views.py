@@ -431,3 +431,18 @@ def removecomment(request):
         return redirect('/blogs/'+current_user_path)
     except:
         return redirect('/')
+
+
+@csrf_exempt
+def delete_blog(request):
+    if not request.user.is_authenticated or request.method != "POST":
+        return Response({'status':400,'message':'Looks like you are not authorised.'})
+    try:
+        body = json.loads(request.body)
+        blog = Blogs.objects.get(blog_url=body.get('blog_url'))
+        if blog.author.email != request.user.email:
+            return Response({'status':403,'message':'You don\'t have permission to delete this Blog.'})
+        blog.delete()
+        return Response({'status':200,'message':'success'})
+    except:
+        return Response({'status':404,'message':'Blog Not Found.'})

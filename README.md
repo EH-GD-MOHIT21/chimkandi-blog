@@ -25,3 +25,7 @@ New
 10. Added Comment Section Option for blogs
 
 11. Added Password Reset Option
+
+12. added search for recent/featured posts.
+
+13. Remove a blog (creator only access)
